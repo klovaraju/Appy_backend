@@ -9,7 +9,7 @@ const path=require('path')
 
 const app=express();
 dotenv.config();
- const PORT=3000
+ const PORT=process.env.PORT||3000
  app.listen(PORT,()=>{
     console.log(`port is runnning succesfully at ${PORT}`)
  })
@@ -31,6 +31,6 @@ app.use('/uploads',express.static('uploads'))
     console.log("mongodb not coonected",error)
  })
 
- app.use('/home',(req,res)=>{
-    res.send("<h1>Appy</h1>")
+ app.use('/',(req,res)=>{
+    res.send("<h1>Welcome To Appy Backend</h1>")
  })
